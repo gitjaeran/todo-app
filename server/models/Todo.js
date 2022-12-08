@@ -31,6 +31,7 @@ const Todo = function (Sequelize, DataTypes) {
     }
   );
 
-  return model};
+  return model;
+};
 
-  module.exports = Todo;
+module.exports = Todo;
