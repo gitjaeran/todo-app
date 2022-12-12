@@ -1,1 +1,1 @@
-<div text-align="center">todo project</div>
+<div>todo project</div>
