@@ -58,27 +58,6 @@ res.send(true)
 });
 
 //DELETE localhost:PORT/todo/:todoId - remove a specific todo (DELETE)
-router.delete('/todo/:todoId', async (req, res) => {
-  // console.log(req.params); // { todoId: '8' }
 
-  try {
-    let isDeleted = await Todo.destroy({
-      where: {
-        id: req.params.todoId,
-      },
-    });
-    // console.log(isDeleted); // 1 or 0
-
-    // 삭제 실패 (!0)
-    if (!isDeleted) {
-      return res.send(false);
-    }
-
-    // 삭제 성공
-    res.send(true);
-  } catch (err) {
-    res.send(err);
-  }
-});
 
 module.exports = router;
