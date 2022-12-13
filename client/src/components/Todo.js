@@ -2,7 +2,6 @@
 
 const Todo = ({item}) => {
 const {id, title, done} = item;
-  console.log(item)
 
   return (
     <div className="Todo">
