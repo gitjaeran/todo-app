@@ -1,7 +1,13 @@
+import {useState} from 'react';
 
-
-const Todo = ({item}) => {
+const Todo = ({item, deleteItem}) => {
 const {id, title, done} = item;
+
+const [todoItem, setTodoItem] = useState(item)
+
+const onDeleteBtnClick = () => {
+  deleteItem(todoItem);
+}
 
   return (
     <div className="Todo">
@@ -16,6 +22,7 @@ const {id, title, done} = item;
       <label 
         htmlFor={`todo${id}`}>{title}
       </label>
+      <button onClick={onDeleteBtnClick}>DELETE</button>
     </div>
   )
 }

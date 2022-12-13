@@ -21,9 +21,8 @@ const App = () => {
     },
 ])
 
-
+  //ADD
 const todoId = useRef(4)
-   //ADD
   // AddTodo 컴포넌트는 상위 컴포넌트(App)의 todoItems(state)에 접근 불가능
   // 상위 컴포넌트(App)은 AddTodo 컴포넌트 접근 가능
   // => App 컴포넌트에 addItem() 함수를 정의하고, 해당 함수를 AddTodo props로 넘겨야 함
@@ -35,13 +34,20 @@ const todoId = useRef(4)
 setTodoItems([...todoItems, newItem]) //또는 todoItems. concat(newItem) 사용
   }
 
+  //delete
+  const deleteItem = (targetItem) => {
+    let newTodoItems = todoItems.filter((item) => item.id !== targetItem.id)
+    //뷰에도 반영되는 코드
+    setTodoItems(newTodoItems)
+  }
 
   return (
     <div className="App">
-      <AddTodo addItem={addItem}/>
+      <AddTodo addItem={addItem} />
+      
       {todoItems.map((item)=> {
           // console.log(item)
-          return <Todo key={item.id} item={item}/>;
+          return <Todo key={item.id} item={item} deleteItem={deleteItem} /> ;
         })}
     </div>
   );
