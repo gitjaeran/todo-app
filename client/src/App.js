@@ -1,4 +1,4 @@
-import {useState, useRef } from 'react'
+import {useState, useRef, useEffect } from 'react'
 import Todo from './components/Todo'
 import AddTodo from './components/AddTodo'
 import './styles/App.scss';
@@ -25,6 +25,13 @@ const App = () => {
 
   //ADD
 const todoId = useRef(4)
+
+// useEffect(()=>{
+//   const getTodos = async () => {
+//     let result = await axios.get('http://localhost:8080/todos')
+//   }
+// })
+
   // AddTodo 컴포넌트는 상위 컴포넌트(App)의 todoItems(state)에 접근 불가능
   // 상위 컴포넌트(App)은 AddTodo 컴포넌트 접근 가능
   // => App 컴포넌트에 addItem() 함수를 정의하고, 해당 함수를 AddTodo props로 넘겨야 함

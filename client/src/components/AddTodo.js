@@ -12,6 +12,11 @@ const AddTodo = ({addItem}) => {
 });
 
   const onButtonClick =  () => {
+  //input값이 양끝 공백 제외해서도 0일경우 add함수 미리 종료
+  if (todoItem.title.trim().length === 0) {
+    return;
+  }
+
     //props로 받아온 addItem 함수 실행
     addItem(todoItem) //title: input입력값
     setTodoItem({title: ''}) //input 초기화
@@ -31,7 +36,8 @@ const AddTodo = ({addItem}) => {
   placeholder="Add your new Todo" 
   value={todoItem.title} 
   onChange={(e) => setTodoItem({title: e.target.value})}
-  onKeyPress={onEnterKeyPress}/>
+  onKeyPress={onEnterKeyPress}
+  autoFocus/>
 
   <button onClick={onButtonClick}><FontAwesomeIcon icon={faPlus} /></button>
   </div>
